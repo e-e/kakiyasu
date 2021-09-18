@@ -22,4 +22,24 @@ new Kakiyasu("#my-input-selector", {
   }
 });
 ```
+where `text` is the text to insert, and `offset` is the offset _back_ from the end of the inserted text, and is where the cursor will be placed. For example, for the default `Escape` action which inserts "[]", the offset is `-1` in order to place the cursor inbetween the brackets.
+
 If your new action is a combination of Shift + another key, the action key would become "<event.key>Shift", where `event.key` is the key property on the `keydown` event object.
+
+The default actions are as follows and can be overridden:
+```
+const defaultActions: Actions = {
+  Escape: {
+    text: "[]",
+    offset: -1,
+  },
+  EscapeShift: {
+    text: "()",
+    offset: -1,
+  },
+  Alt: {
+    text: " ",
+    offset: 0,
+  },
+};
+```
