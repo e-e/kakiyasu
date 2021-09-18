@@ -59,7 +59,7 @@ class Kakiyasu {
     let doc = input.ownerDocument;
 
     // @ts-ignore
-    if (doc.selection != "undefined" && doc.selection.createRange) {
+    if (typeof doc.selection != "undefined" && doc.selection.createRange) {
       input.focus();
       // @ts-ignore
       range = doc.selection.createRange();
