@@ -1,10 +1,19 @@
 {
   "name": "kakiyasu",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "include furigana with your japanese - with ease!",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e-e/kakiyasu.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "prepare": "npm run build"
   },
   "keywords": [
     "Japanese",
@@ -16,5 +25,8 @@
     "email": "god@eric.wtf",
     "url": "https://eric.wtf/"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
 }
