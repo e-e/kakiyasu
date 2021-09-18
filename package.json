@@ -1,0 +1,20 @@
+{
+  "name": "kakiyasu",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Japanese",
+    "Furigana",
+    "Yomigana"
+  ],
+  "author": {
+    "name": "Eric Ellingson",
+    "email": "god@eric.wtf",
+    "url": "https://eric.wtf/"
+  },
+  "license": "MIT"
+}
