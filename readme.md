@@ -1,5 +1,11 @@
 Binds actions to keys for the input element selector provided.　Useful when using square-bracket notation for adding furigana/yomigana readings.
 
+
+
+https://user-images.githubusercontent.com/5191838/133937985-acd7fe0f-a39b-4d3d-94f3-5c952d331920.mov
+
+
+
 | Key      | Action |
 | ----------- | ----------- |
 | Escape      | Inserts "[]" at the current cursor position       |
@@ -28,7 +34,7 @@ If your new action is a combination of Shift + another key, the action key would
 
 The default actions are as follows and can be overridden:
 ```
-const defaultActions: Actions = {
+const defaultActions = {
   Escape: {
     text: "[]",
     offset: -1,
