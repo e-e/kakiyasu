@@ -1,5 +1,5 @@
-import { Hello } from '../src';
+import { KakiyasuInput } from '../src';
 
 test('hello', () => {
-  expect(new Hello().sayHello()).toBe('hello, world!');
+  expect(1).toBe(1);
 });
