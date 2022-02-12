@@ -1,3 +1,8 @@
+/**
+ * resources:
+ * - https://kennethwinner.com/2021/03/07/projen-external-module-github/
+ */
+
 const { typescript } = require('projen');
 const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
@@ -8,6 +13,9 @@ const project = new typescript.TypeScriptProject({
   // devDeps: [],             /* Build dependencies for this module. */
   packageName: 'kakiyasu', /* The "name" in package.json. */
   npmRegistryUrl: 'https://registry.npmjs.org/',
+  releaseToNpm: true,
+  majorVersion: 1,
+  npmTokenSecret: 'NPM_PUBLISH_TOKEN',
 });
 
 project.tsconfig.compilerOptions.lib.push('dom');
