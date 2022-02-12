@@ -1,11 +1,11 @@
-type Actions = {
+export type Actions = {
   [key: string]: {
     text: string;
     offset: number;
   };
 };
 
-const defaultActions: Actions = {
+export const defaultActions: Actions = {
   Escape: {
     text: "[]",
     offset: -1,
@@ -20,12 +20,12 @@ const defaultActions: Actions = {
   },
 };
 
-class Kakiyasu {
+export class KakiyasuInput {
   input: HTMLInputElement | null;
   actions: Actions;
 
-  constructor(inputSelector: string, userActions: Actions) {
-    this.input = document.querySelector(inputSelector);
+  constructor(input: HTMLInputElement, userActions: Actions) {
+    this.input = input;
     this.actions = Object.assign(defaultActions, userActions);
 
     if (this.input === null) {
@@ -39,7 +39,7 @@ class Kakiyasu {
     this.input?.addEventListener("keydown", this.onKeyUp.bind(this));
   }
 
-  onKeyUp(event) {
+  onKeyUp(event: KeyboardEvent) {
     const key = event.key + (event.shiftKey ? "Shift" : "");
     if (!this.actions.hasOwnProperty(key)) {
       return;
@@ -70,7 +70,7 @@ class Kakiyasu {
     }
 
     try {
-      endIndex = input.selectionEnd;
+      endIndex = input.selectionEnd!;
       input.value = [
         value.slice(0, endIndex),
         insertText,
@@ -80,6 +80,21 @@ class Kakiyasu {
         endIndex + insertText.length + offset;
     } catch (err) {
       console.log("Kakiyasu: selection error", err);
+    }
+  }
+}
+
+class Kakiyasu {
+  constructor(inputSelector: string, userActions: Actions) {
+    const inputs = [].slice.call(document.querySelectorAll(inputSelector));
+    const actions = Object.assign(defaultActions, userActions);
+
+    if (inputs.length === 0) {
+      console.debug("[Kakiyasu] no inputs found");
+    }
+
+    for (let input of inputs) {
+      new KakiyasuInput(input, actions);
     }
   }
 }
