@@ -7,7 +7,7 @@ const project = new typescript.TypeScriptProject({
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // devDeps: [],             /* Build dependencies for this module. */
   packageName: 'kakiyasu', /* The "name" in package.json. */
-  npmRegistryUrl: "https://registry.npmjs.org/",
+  npmRegistryUrl: 'https://registry.npmjs.org/',
 });
 
 project.tsconfig.compilerOptions.lib.push('dom');
