@@ -7,15 +7,15 @@ export type Actions = {
 
 export const defaultActions: Actions = {
   Escape: {
-    text: "[]",
+    text: '[]',
     offset: -1,
   },
   EscapeShift: {
-    text: "()",
+    text: '()',
     offset: -1,
   },
   Alt: {
-    text: " ",
+    text: ' ',
     offset: 0,
   },
 };
@@ -29,18 +29,18 @@ export class KakiyasuInput {
     this.actions = Object.assign(defaultActions, userActions);
 
     if (this.input === null) {
-      throw new Error("Input element not found");
+      throw new Error('Input element not found');
     }
 
     this.setupEvents();
   }
 
   setupEvents() {
-    this.input?.addEventListener("keydown", this.onKeyUp.bind(this));
+    this.input?.addEventListener('keydown', this.onKeyUp.bind(this));
   }
 
   onKeyUp(event: KeyboardEvent) {
-    const key = event.key + (event.shiftKey ? "Shift" : "");
+    const key = event.key + (event.shiftKey ? 'Shift' : '');
     if (!this.actions.hasOwnProperty(key)) {
       return;
     }
@@ -59,7 +59,7 @@ export class KakiyasuInput {
     let doc = input.ownerDocument;
 
     // @ts-ignore
-    if (typeof doc.selection != "undefined" && doc.selection.createRange) {
+    if (typeof doc.selection != 'undefined' && doc.selection.createRange) {
       input.focus();
       // @ts-ignore
       range = doc.selection.createRange();
@@ -75,11 +75,11 @@ export class KakiyasuInput {
         value.slice(0, endIndex),
         insertText,
         value.slice(endIndex),
-      ].join("");
+      ].join('');
       input.selectionStart = input.selectionEnd =
         endIndex + insertText.length + offset;
     } catch (err) {
-      console.log("Kakiyasu: selection error", err);
+      console.log('Kakiyasu: selection error', err);
     }
   }
 }
@@ -90,7 +90,7 @@ class Kakiyasu {
     const actions = Object.assign(defaultActions, userActions);
 
     if (inputs.length === 0) {
-      console.debug("[Kakiyasu] no inputs found");
+      console.debug('[Kakiyasu] no inputs found');
     }
 
     for (let input of inputs) {

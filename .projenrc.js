@@ -6,10 +6,10 @@ const project = new typescript.TypeScriptProject({
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // devDeps: [],             /* Build dependencies for this module. */
-  packageName: "kakiyasu",  /* The "name" in package.json. */
+  packageName: 'kakiyasu', /* The "name" in package.json. */
 });
 
-project.tsconfig.compilerOptions.lib.push("dom");
-project.gitignore.addPatterns(".DS_Store", ".idea");
+project.tsconfig.compilerOptions.lib.push('dom');
+project.gitignore.addPatterns('.DS_Store', '.idea');
 
 project.synth();
